@@ -1,54 +1,50 @@
-<html ng-app="todoApp">
+<!DOCTYPE html>
+<html>
 <head>
-<title>Todo Application</title>
-<link rel="stylesheet"
-	href="/webjars/bootstrap/3.3.7-1/css/bootstrap.css">
-</head>
-<body ng-controller="TodoController as TodoCtrl" ng-cloak>
-	<div class="container">
-		<div class="panel panel-success">
-			<div class="input-group">
-				<input type="text" class="form-control" ng-model="TodoCtrl.todo.description" placeholder="Add a to-do..." onkeydown = "if (event.keyCode == 13) document.getElementById('btnAddTodo').click()" >
-				<span class="input-group-btn">
-					<button id="btnAddTodo" class="btn btn-success" type="button" ng-click="TodoCtrl.addTodo()">Add</button>
-				</span>
-			</div>
-			<!-- /input-group -->
-		</div>
-
-		<div class="panel panel-info">
-			<div class="panel-heading">List of Todos</div>
-			<table class="table">
-				<tbody>
-					<tr ng-repeat="todo in TodoCtrl.todos">
-						<td>
-						<input type="checkbox" ng-checked="todo.completed" ng-click="TodoCtrl.setCompleted(todo)">
-						
-						<span ng-bind="todo.description" ng-hide="TodoCtrl.editMode"></span>
-						<span class="btn-warning" ng-show="todo.completed"> COMPLETED</span>
-						
-						<input type="text" class="form-control" ng-model="todo.description" ng-show="TodoCtrl.editMode">
-						<td />
-						<td align="right">
-							<button class="btn btn-warning" type="button" ng-click="TodoCtrl.editMode=true" ng-hide="TodoCtrl.editMode">Edit</button>
-							<button class="btn btn-warning" type="button" ng-click="TodoCtrl.editTodo(todo)" ng-show="TodoCtrl.editMode">Update</button>
-							<button class="btn btn-danger" type="button"  ng-click="TodoCtrl.deleteTodo(todo.id)">Delete</button>
-						</td>
-					</tr>
-				</tbody>
-			</table>
-		</div>
-	</div>
-
-	<script src="/webjars/jquery/3.1.1-1/jquery.min.js"></script>
-	<script src="/webjars/bootstrap/3.3.7-1/js/bootstrap.min.js"></script>
-	<script src="/webjars/angularjs/1.6.2/angular.min.js"></script>
-	<script src="/webjars/angularjs/1.6.2/angular-route.js"></script>
-
+<title>Lembretes by Leo</title>           		
+	<script src="/assets/js/angular-1.7.7.min.js"></script>
+	<script src="/assets/js/angular-route-1.7.7.min.js"></script>
+    
 	<script src="/js/app.js"></script>
-	<script src="/js/controller/todo.controller.js"></script>
+    <script src="/js/controller/todo.controller.js"></script>
+    <script src="/js/controller/home.controller.js"></script>
 	<script src="/js/service/todo.service.js"></script>
-	<script src="/js/service/appconstant.service.js"></script>
+    <script src="/js/service/appconstant.service.js"></script>
+    <link href="/assets/css/normalize.css" rel="stylesheet">
+    <link href="/assets/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
 
+<!-- NAVIGATION BAR TOP FIXED -->
+        <nav class="navbar navbar-expand fixed-top navbar-dark bg-dark">
+            <a class="navbar-brand" href="#">Menu</a>
+
+            <ul class="navbar-nav">
+                <li class="navbar-item">
+                    <a class="nav-link" href="#">Home</a>
+                </li>
+                <li class="navbar-item" ng-controller="todoController">
+                    <a class="nav-link" href="#!/add">Todo</a>
+                </li>
+            
+            </ul>
+        </nav>
+<!-- end of navbar -->
+
+            <br>
+            <br>
+            <br>
+
+            <div ng-app="todoApp">
+                <div ng-view></div>			
+            </div>
+
+		</div>
+
+        <script src="/assets/js/jquery-3.3.1.min.js"></script>
+        <script src="/assets/js/bootstrap.min.js" type="text/javascript"></script>		
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	
 </body>
 </html>

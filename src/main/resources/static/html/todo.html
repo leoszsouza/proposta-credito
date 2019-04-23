@@ -1,0 +1,42 @@
+<div ng-controller="todoController">
+	<div class="container">
+		<div class="panel panel-success">
+			<div class="input-group">
+				<input type="text" class="form-control" ng-model="todo.description" placeholder="Informe um lembrete..." onkeydown = "if (event.keyCode == 13) document.getElementById('btnAddTodo').click()" >
+				<span class="input-group-btn">
+					<button id="btnAddTodo" class="btn btn-success" type="button" ng-click="addTodo()">Adicionar</button>
+				</span>
+			</div>
+			<!-- /input-group--> 
+        </div>
+        <!-- <div>
+            <span class="input-group-btn">
+					<button id="btnListarTodo" class="btn btn-primary" type="button" ng-click="findAllTodos()">Listar</button>
+            </span>
+        </div> -->
+        <br/>
+        <div class="panel panel-info">
+			<div class="panel-heading">Lembretes</div>
+			<table class="table table-striped">
+				<tbody>
+					<tr ng-repeat="todo in todos">
+						<td>
+						<input type="checkbox" ng-checked="todo.completed" ng-click="setCompleted(todo)">
+						
+						<span ng-bind="todo.description" ng-hide="editMode"></span>
+						<span class="btn-warning" ng-show="todo.completed"> COMPLETED</span>
+						
+						<input type="text" class="form-control" ng-model="todo.description" ng-show="editMode">
+						<td />
+						<td align="right">
+							<button class="btn btn-warning" type="button" ng-click="editMode=true" ng-hide="editMode">Editar</button>
+							<button class="btn btn-warning" type="button" ng-click="editTodo(todo)" ng-show="editMode">Atualizar</button>
+							<button class="btn btn-danger" type="button"  ng-click="deleteTodo(todo.id)">Remover</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>	
+
+</div>

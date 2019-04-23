@@ -1,42 +1,45 @@
-app.controller("TodoController", function(TodoService){
-	var self = this; 
-	self.todos = [];
-	self.todo = {};
-	self.editMode = false;
+app.controller("todoController", function($scope, TodoService){  
+
+	$scope.todos = [];
+	$scope.todo = {};
+	$scope.editMode = false;
 	
-	self.findAllTodos = function(){
+	$scope.findAllTodos = function(){
+        console.log("teste find");
 		TodoService.findAllTodos().then(function(data){
-			self.todos = data;
+            
+			$scope.todos = data;
 		});
 	};
 	
-	self.addTodo = function(){
-		TodoService.addTodo(self.todo).then(function(data){
-			self.findAllTodos();
+	$scope.addTodo = function(){
+        console.log("teste add");
+		TodoService.addTodo($scope.todo).then(function(data){
+			$scope.findAllTodos();
 		});
 		
-		self.todo = {};
+		$scope.todo = {};
 	};
 	
-	self.deleteTodo = function(id){
+	$scope.deleteTodo = function(id){
 		TodoService.deleteTodo(id).then(function(data){
-			self.findAllTodos();
+			$scope.findAllTodos();
 		});
 	};
 	
-	self.editTodo = function(todo){
+	$scope.editTodo = function(todo){
 		TodoService.updateTodo(todo).then(function(data){
-			self.findAllTodos();
+			$scope.findAllTodos();
 		});
-		self.editMode = false;
+		$scope.editMode = false;
 	};
 	
-	self.setCompleted = function(todo){
+	$scope.setCompleted = function(todo){
 		todo.completed = !todo.completed;
 		TodoService.updateTodo(todo).then(function(data){
-			self.findAllTodos();
+			$scope.findAllTodos();
 		});
 	}
 	
-	self.findAllTodos();
+	$scope.findAllTodos();
 });
