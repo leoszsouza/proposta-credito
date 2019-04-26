@@ -1,10 +1,11 @@
 Manifest-Version: 1.0
-Implementation-Title: todo-app
+Implementation-Title: proposta-credito
 Implementation-Version: 0.0.1-SNAPSHOT
 Built-By: Leonardo
-Implementation-Vendor-Id: com.akcay
+Implementation-Vendor-Id: com.testecredito
 Build-Jdk: 1.8.0_201
-Implementation-URL: http://projects.spring.io/spring-boot/todo-app/
+Implementation-URL: http://projects.spring.io/spring-boot/proposta-cre
+ dito/
 Created-By: Maven Integration for Eclipse
 Implementation-Vendor: Pivotal Software, Inc.
 

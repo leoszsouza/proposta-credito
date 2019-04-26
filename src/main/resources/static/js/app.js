@@ -6,11 +6,15 @@ app.config(['$routeProvider', function($routeProvider) {
 		.when('/', {
 			templateUrl : 'html/home.html',
 			controller: 'homeController'
-		})
-		.when('/add', {
-			templateUrl : 'html/todo.html',
-			controller: 'todoController'
 		})		
+        .when('/cadastrarProposta', {
+			templateUrl : 'html/proposta.html',
+			controller: 'propostaController'
+        })	
+        .when('/propostasAnalise', {
+			templateUrl : 'html/proposta-list.html',
+			controller: 'propostaController'
+        })        
 		.otherwise({
 			redirectTo: '/'
 		});
