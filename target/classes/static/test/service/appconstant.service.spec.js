@@ -2,13 +2,13 @@
 
 describe("API_ENDPOINT", function(){
 	var apiEndPoint;
-	beforeEach(module('todoApp'));
+	beforeEach(module('propostaApp'));
 	
 	beforeEach(inject(function(API_ENDPOINT){
 		apiEndPoint = API_ENDPOINT;
 	}));
 	
-	it("should be defined", function(){
+	it("Deve estar válido", function(){
 		expect(apiEndPoint).toBeDefined();
 	});
 	
@@ -17,6 +17,6 @@ describe("API_ENDPOINT", function(){
 	});
 	
 	it("API_ENDPOINT.TODOS should be /", function(){
-		expect(apiEndPoint.TODOS).toBe("/todos");
+		expect(apiEndPoint.PROPOSTAS).toBe("/propostas");
 	});
 });

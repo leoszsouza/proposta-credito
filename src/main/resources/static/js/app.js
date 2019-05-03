@@ -1,4 +1,4 @@
-var app = angular.module("todoApp", ["ngRoute"]);
+var app = angular.module("propostaApp", ["ngRoute"]);
 
 app.config(['$routeProvider', function($routeProvider) {
 
